@@ -4,7 +4,7 @@
 // reserved before it is sent, settled to its real cost after.
 
 import { MuseBudgetError, reserve, settle } from './budget';
-import { costUsd, type MuseModel, type MuseUsage } from './models';
+import { costUsd, EFFORT, type MuseModel, type MuseUsage } from './models';
 
 const ENDPOINT = 'https://api.meta.ai/v1/chat/completions';
 
@@ -85,6 +85,7 @@ export async function museChat({
       body: JSON.stringify({
         model,
         messages,
+        reasoning_effort: EFFORT[model],
         ...(json ? { response_format: { type: 'json_schema', json_schema: json } } : {}),
       }),
       signal: AbortSignal.timeout(timeoutMs),

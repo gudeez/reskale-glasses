@@ -4,7 +4,7 @@
 import { API_BASE_URL } from '@/lib/api-config';
 import type { ScanFacts } from '@/lib/muse/ask';
 
-const TIMEOUT_MS = 9_000;
+const TIMEOUT_MS = 14_000;
 
 async function post(body: object): Promise<string | null> {
   const controller = new AbortController();

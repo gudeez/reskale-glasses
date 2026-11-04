@@ -10,7 +10,8 @@ import { acceptVerdictSentence, askMessages, verdictMessages, type ScanFacts } f
 import { museChat, MuseError } from '@/lib/muse/client';
 import { MUSE_FAST } from '@/lib/muse/models';
 
-const TIMEOUT_MS = 8_000;
+/** Spark at minimal effort answers in about 3 s; room for a slow one. */
+const TIMEOUT_MS = 12_000;
 
 function isFacts(v: unknown): v is ScanFacts {
   return !!v && typeof v === 'object' && !Array.isArray(v);

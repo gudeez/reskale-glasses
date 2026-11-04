@@ -17,6 +17,17 @@ export const MUSE_PRICES: Record<MuseModel, { input: number; output: number }> =
 /** Ask Wonder when Spark's own confidence is under this, or it couldn't name the item. */
 export const ESCALATE_BELOW = 0.5;
 
+/**
+ * How long each model thinks. Measured 2026-11-04 on one photo: Spark took
+ * 8.3 s at its default, 6.8 s at "low" and 3.1 s at "minimal"; Wonder 2.8 s at
+ * "low". A seller holding an item waits for every second of it.
+ */
+export type MuseEffort = 'minimal' | 'low' | 'medium' | 'high';
+export const EFFORT: Record<MuseModel, MuseEffort> = {
+  [MUSE_FAST]: 'minimal',
+  [MUSE_SMART]: 'low',
+};
+
 export interface MuseUsage {
   prompt_tokens: number;
   completion_tokens: number;
