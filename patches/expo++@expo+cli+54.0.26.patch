@@ -1,0 +1,27 @@
+diff --git a/node_modules/expo/node_modules/@expo/cli/build/src/start/server/middleware/resolveRuntimeVersionWithExpoUpdatesAsync.js b/node_modules/expo/node_modules/@expo/cli/build/src/start/server/middleware/resolveRuntimeVersionWithExpoUpdatesAsync.js
+index 3d48f89..69e2aa3 100644
+--- a/node_modules/expo/node_modules/@expo/cli/build/src/start/server/middleware/resolveRuntimeVersionWithExpoUpdatesAsync.js
++++ b/node_modules/expo/node_modules/@expo/cli/build/src/start/server/middleware/resolveRuntimeVersionWithExpoUpdatesAsync.js
+@@ -11,7 +11,21 @@ Object.defineProperty(exports, "resolveRuntimeVersionWithExpoUpdatesAsync", {
+ const _env = require("../../../utils/env");
+ const _expoUpdatesCli = require("../../../utils/expoUpdatesCli");
+ const debug = require('debug')('expo:start:server:middleware:resolveRuntimeVersion');
+-async function resolveRuntimeVersionWithExpoUpdatesAsync({ projectRoot, platform }) {
++// Reskale patch: the CLI below spawns a process that takes 7-10 s on Windows, on
++// every manifest request, and the dev client gives up after ~10 s. The runtime
++// version comes from the app config, which needs a dev server restart to change.
++const runtimeVersions = new Map();
++function resolveRuntimeVersionWithExpoUpdatesAsync({ projectRoot, platform }) {
++    const key = `${projectRoot}\0${platform}`;
++    if (!runtimeVersions.has(key)) {
++        runtimeVersions.set(key, resolveUncachedAsync({ projectRoot, platform }).catch((e)=>{
++            runtimeVersions.delete(key);
++            throw e;
++        }));
++    }
++    return runtimeVersions.get(key);
++}
++async function resolveUncachedAsync({ projectRoot, platform }) {
+     try {
+         debug('Using expo-updates runtimeversion:resolve CLI for runtime version resolution');
+         const extraArgs = _env.env.EXPO_DEBUG ? [

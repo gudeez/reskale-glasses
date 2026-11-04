@@ -1,0 +1,62 @@
+diff --git a/node_modules/@mentra/bluetooth-sdk/android/build.gradle b/node_modules/@mentra/bluetooth-sdk/android/build.gradle
+--- a/node_modules/@mentra/bluetooth-sdk/android/build.gradle
++++ b/node_modules/@mentra/bluetooth-sdk/android/build.gradle
+@@ -184,7 +184,7 @@
+ def expoModulesCorePlugin = new File(project(":expo-modules-core").projectDir.absolutePath, "ExpoModulesCorePlugin.gradle")
+ apply from: expoModulesCorePlugin
+ applyKotlinExpoModulesCorePlugin()
+-useExpoPublishing()
++// Reskale: useExpoPublishing() removed - it duplicates singleVariant("release") below on Expo SDK 54.
+ 
+ // If you want to use the managed Android SDK versions from expo-modules-core, set this to true.
+ // The Android SDK versions will be bumped from time to time in SDK releases and may introduce breaking changes in your module code.
+diff --git a/node_modules/@mentra/bluetooth-sdk/android/src/main/java/com/mentra/bluetoothsdk/sgcs/MentraLive.kt b/node_modules/@mentra/bluetooth-sdk/android/src/main/java/com/mentra/bluetoothsdk/sgcs/MentraLive.kt
+--- a/node_modules/@mentra/bluetooth-sdk/android/src/main/java/com/mentra/bluetoothsdk/sgcs/MentraLive.kt
++++ b/node_modules/@mentra/bluetooth-sdk/android/src/main/java/com/mentra/bluetoothsdk/sgcs/MentraLive.kt
+@@ -4062,14 +4062,14 @@
+                     }
+             "stream_status" -> {
+                 // Process streaming status update from ASG client
+-                Bridge.log("LIVE: Received stream status update from glasses: " + json.toString())
++                Bridge.log("LIVE: Received stream status update from glasses: " + json.optString("status", ""))
+ 
+                 // Check if this is an error status
+                 val status = json.optString("status", "")
+                 if ("error" == status) {
+                     val errorDetails = json.optString("errorDetails", "")
+                     Log.e(TAG, "🚨🚨🚨 RTMP STREAM ERROR DETECTED 🚨🚨🚨")
+-                    Log.e(TAG, "📄 Error details: " + errorDetails)
++                    Log.e(TAG, "📄 Error details withheld (may contain the stream key)")
+                     Log.e(TAG, "⏱️ Timestamp: " + System.currentTimeMillis())
+ 
+                     // Check if it's the timeout error we're investigating
+diff --git a/node_modules/@mentra/bluetooth-sdk/ios/Source/DeviceManager.swift b/node_modules/@mentra/bluetooth-sdk/ios/Source/DeviceManager.swift
+--- a/node_modules/@mentra/bluetooth-sdk/ios/Source/DeviceManager.swift
++++ b/node_modules/@mentra/bluetooth-sdk/ios/Source/DeviceManager.swift
+@@ -1494,7 +1494,7 @@
+ 
+     func startStream(_ message: [String: Any]) {
+         var message = message
+-        Bridge.log("MAN: startStream: \(message)")
++        Bridge.log("MAN: startStream")
+         sgc?.startStream(message)
+     }
+ 
+@@ -1504,7 +1504,7 @@
+     }
+ 
+     func keepStreamAlive(_ message: [String: Any]) {
+-        Bridge.log("MAN: sendStreamKeepAlive: \(message)")
++        Bridge.log("MAN: sendStreamKeepAlive")
+         sgc?.sendStreamKeepAlive(message)
+     }
+ 
+@@ -1524,7 +1524,7 @@
+     }
+ 
+     func sendWifiCredentials(_ ssid: String, _ password: String) {
+-        Bridge.log("MAN: Sending wifi credentials: \(ssid) \(password)")
++        Bridge.log("MAN: Sending wifi credentials")
+         sgc?.sendWifiCredentials(ssid, password)
+     }
+ 

@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+ios/
+android/
+*.log
+.DS_Store
+
+# Secrets and local state
+.env
+.env.*
+!.env.example
+.muse-usage.json
+
+# @generated expo-cli
+expo-env.d.ts
