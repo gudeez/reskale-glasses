@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-02 (before this repo); changed here on 2026-11-04 for the hackathon. See HACKATHON.md.
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import { router } from 'expo-router';

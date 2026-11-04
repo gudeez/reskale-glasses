@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-29, last changed 2026-10-29 (before this repo). See HACKATHON.md.
 /**
  * Barcode → product name, from UPCitemdb's free "trial" endpoint (no key).
  *

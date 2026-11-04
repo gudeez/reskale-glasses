@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-04, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 import { describe, expect, it } from 'vitest';
 import { buyWeightAnswer, minListAnswer, shipCostAnswer, spokenMoney } from '../glasses/spoken-calculator';
 

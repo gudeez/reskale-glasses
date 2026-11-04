@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-11-02 (before this repo). See HACKATHON.md.
 import { View, Text, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { useGlassesStore } from '@/store/glassesStore';

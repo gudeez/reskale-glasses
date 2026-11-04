@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 /**
  * Picking a retail product barcode out of what the barcode reader saw in a
  * glasses photo. Pure — no native imports — so it unit-tests in plain Node.

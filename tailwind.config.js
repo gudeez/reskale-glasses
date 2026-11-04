@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-03-01, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 /** @type {import('tailwindcss').Config} */
 // Colors and the text scale live in constants/theme.js — the one place
 // they're written down (ENG-259). Add a color there, never here.

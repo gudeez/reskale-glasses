@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-03-20, last changed 2026-10-07 (before this repo); changed here on 2026-11-04 for the hackathon. See HACKATHON.md.
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 

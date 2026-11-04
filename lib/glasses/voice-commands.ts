@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-04 (before this repo); changed here on 2026-11-04 for the hackathon. See HACKATHON.md.
 /**
  * What a seller can say to the glasses. Pure, so it unit-tests in plain Node.
  *

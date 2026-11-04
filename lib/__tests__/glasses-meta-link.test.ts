@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 import { describe, it, expect } from 'vitest';
 import { redirectMetaCallback } from '@/lib/glasses/meta-link';
 

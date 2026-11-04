@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-02 (before this repo). See HACKATHON.md.
 import type { CheckedSale } from './sold';
 
 /**

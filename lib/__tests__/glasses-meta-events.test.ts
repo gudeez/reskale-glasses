@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 import { describe, it, expect } from 'vitest';
 import type { InputEvent, StreamError } from '@chrisgocode/expo-meta-wearables-dat';
 import {

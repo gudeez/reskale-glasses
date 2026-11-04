@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-11-02 (before this repo); changed here on 2026-11-04 for the hackathon. See HACKATHON.md.
 import { create } from 'zustand';
 import { storage } from '@/lib/storage';
 import { createMetaTransport } from '@/lib/glasses/meta';

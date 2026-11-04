@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 import { describe, expect, it } from 'vitest';
 import { afterWakeWord, createCommandListener, parseAmount, parseCommand, WAKE_WINDOW_MS } from '../glasses/voice-commands';
 

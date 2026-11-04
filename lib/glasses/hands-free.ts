@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-02 (before this repo). See HACKATHON.md.
 /**
  * Hands-free sourcing: what each press of the glasses button does. Pure apart
  * from the timer it is handed, so it unit-tests in plain Node.

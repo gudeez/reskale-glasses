@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-03-20, last changed 2026-03-20 (before this repo). See HACKATHON.md.
 import { Platform } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 

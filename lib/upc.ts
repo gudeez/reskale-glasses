@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-29, last changed 2026-10-29 (before this repo). See HACKATHON.md.
 /**
  * Client for /api/upc/lookup — a scanned barcode's product name. A lookup that
  * fails is "no name", never an error: the scan carries on with eBay alone.

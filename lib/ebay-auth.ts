@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-03-20, last changed 2026-03-20 (before this repo). See HACKATHON.md.
 /**
  * eBay OAuth Client Credentials flow.
  * Used by server-side API routes only — never imported on the client.

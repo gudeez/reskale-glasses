@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-11-03 (before this repo). See HACKATHON.md.
 /**
  * What a glasses scan found, read aloud in two parts. The figures are the
  * ones the Scan tab's result sheet shows (its listings, and the sold and

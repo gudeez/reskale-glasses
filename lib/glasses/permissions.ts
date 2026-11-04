@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 import { PermissionsAndroid, Platform, type Permission } from 'react-native';
 
 /**

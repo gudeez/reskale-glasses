@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-05-16, last changed 2026-05-16 (before this repo). See HACKATHON.md.
 import { Redis } from '@upstash/redis';
 
 let cached: Redis | null | undefined;

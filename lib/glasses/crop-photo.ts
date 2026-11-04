@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-02 (before this repo). See HACKATHON.md.
 import { ImageManipulator } from 'expo-image-manipulator';
 import type { FocusBox } from '@/lib/focus-crop';
 import { prepareFocusCrop } from '@/lib/prepare-scan-image';

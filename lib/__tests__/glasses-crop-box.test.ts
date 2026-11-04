@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-03 (before this repo). See HACKATHON.md.
 import { describe, expect, it } from 'vitest';
 import { canCropTo, DEFAULT_BOX, MIN_GLASSES_SIDE, needsQuarterTurn, parseBox } from '../glasses/crop-box';
 

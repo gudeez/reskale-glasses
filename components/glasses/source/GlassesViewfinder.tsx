@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-03 (before this repo). See HACKATHON.md.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { PanResponder, Text, View, type LayoutChangeEvent } from 'react-native';
 import { containRect, moveBox, resizeBox, type FocusBox } from '@/lib/focus-crop';

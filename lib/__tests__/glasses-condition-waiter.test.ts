@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { createConditionWaiter } from '@/lib/glasses/condition-waiter';
 

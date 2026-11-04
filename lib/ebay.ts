@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-03-01, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 /**
  * eBay API client — all calls go through Expo API Routes (server-side).
  * This file contains the client-side fetch wrappers.

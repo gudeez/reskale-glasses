@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-11-02 (before this repo). See HACKATHON.md.
 import type { ButtonPress, CaptureQuality, GlassesDevice, GlassesListener, GlassesPhoto, GlassesSnapshot } from './types';
 
 export interface StreamVideo {

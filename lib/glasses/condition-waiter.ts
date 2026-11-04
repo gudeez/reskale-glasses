@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 /**
  * Wait for state that arrives by event: "until the session has started",
  * "until the camera is streaming". The caller updates its own state from the

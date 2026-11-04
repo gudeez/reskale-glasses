@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-03-01, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 export const EBAY_FINAL_VALUE_FEE = 0.135; // 13.5%
 export const DEFAULT_PROMOTED_PCT = 0.03;  // 3% default promoted listing fee
 export const DEFAULT_BIN_RATE = 1.67;      // Goodwill Bins, $ per lb

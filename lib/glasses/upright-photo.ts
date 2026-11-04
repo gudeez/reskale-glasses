@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-03, last changed 2026-11-03 (before this repo). See HACKATHON.md.
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import { needsQuarterTurn } from './crop-box';
 

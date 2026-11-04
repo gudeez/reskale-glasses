@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-05-16, last changed 2026-10-04 (before this repo). See HACKATHON.md.
 /**
  * Two-tier TTL cache for /api/ebay/search (Browse API) responses.
  *

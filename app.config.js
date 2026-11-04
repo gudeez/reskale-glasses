@@ -1,3 +1,4 @@
+// Hackathon (Nov 4 2026): written for this repo, in place of the Reskale app's app.json and app.config.js.
 // Reskale Glasses: a hands-free sourcing agent for Meta Ray-Ban glasses.
 //
 // The identity (package, scheme, version, Meta DAT options) matches the

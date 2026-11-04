@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-20, last changed 2026-10-20 (before this repo). See HACKATHON.md.
 /**
  * Geometry for the "pick the item" box on a scan photo (ENG-176).
  *

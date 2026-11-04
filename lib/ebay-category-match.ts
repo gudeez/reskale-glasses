@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-04, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 /**
  * "Reskale, search in video games category only": which eBay category the
  * seller named. eBay's Taxonomy API suggests leaf categories for the words;

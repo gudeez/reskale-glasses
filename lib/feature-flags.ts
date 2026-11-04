@@ -1,3 +1,4 @@
+// Hackathon (Nov 4 2026): written for this repo; the Reskale app's feature switches, fixed for a Meta-only app.
 // This app is the glasses app, and Meta is its only glasses family, so the
 // switches the Reskale app reads are fixed here.
 export const GLASSES_ENABLED = true;

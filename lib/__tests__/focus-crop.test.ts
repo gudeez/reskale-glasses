@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-20, last changed 2026-10-20 (before this repo). See HACKATHON.md.
 import { describe, expect, it } from 'vitest';
 import {
   MIN_SIDE,

@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-02, last changed 2026-11-03 (before this repo). See HACKATHON.md.
 /**
  * The aiming box on the glasses live view. Geometry is lib/focus-crop.ts's:
  * a FocusBox in 0–1 fractions of the frame. Pure.

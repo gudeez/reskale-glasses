@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-08, last changed 2026-10-08 (before this repo). See HACKATHON.md.
 /**
  * Rough USPS retail prices for the shipping calculator. A guide for deciding
  * between box options — the eBay label quote on the same screen is the price

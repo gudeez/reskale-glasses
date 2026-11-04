@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-04, last changed 2026-11-04 (before this repo). See HACKATHON.md.
 /**
  * The result sheet's profit calculator, said aloud: "Reskale, calculate …".
  * Pure, so it unit-tests in plain Node. Uses the calculator's default fees

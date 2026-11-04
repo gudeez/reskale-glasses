@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-10-23, last changed 2026-10-23 (before this repo). See HACKATHON.md.
 /**
  * After the seller approves Reskale in the Meta AI app, Meta AI opens
  * `reskale-meta://?…&metaWearablesAction=register&…`. The Meta SDK reads that link

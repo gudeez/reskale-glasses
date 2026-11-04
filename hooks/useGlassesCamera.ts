@@ -1,3 +1,4 @@
+// From the Reskale app: first written 2026-11-03, last changed 2026-11-04 (before this repo); changed here on 2026-11-04 for the hackathon. See HACKATHON.md.
 import { useCallback, useEffect, useRef, useState, type MutableRefObject } from 'react';
 import { Alert } from 'react-native';
 import * as Speech from 'expo-speech';
