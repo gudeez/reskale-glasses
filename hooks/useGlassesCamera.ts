@@ -570,6 +570,14 @@ export function useGlassesCamera({
     },
     /** The market lookup behind the result, for the screen. */
     market,
+    /** Search typed on screen: the same as "Reskale, search for …". */
+    search: (query: string) => {
+      const q = query.trim();
+      const host = hostRef.current;
+      if (!q || !host || !sheetRef.current.vision || capturingRef.current || host.busy) return;
+      identityRef.current = { title: q, condition: identityRef.current?.condition ?? null };
+      reprice(`Searching for ${q}.`, () => host.research(q));
+    },
     /** The on-screen shutter does what a press of the glasses button does. */
     shoot: () => handle('single'),
     /** The on-screen "Scan 3 photos": the multi-shot set, read aloud as a press would be. */

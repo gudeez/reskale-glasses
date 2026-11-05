@@ -6,7 +6,7 @@
 // one result card.
 
 import { useRef, useState } from 'react';
-import { ActivityIndicator, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, ScrollView, Text, TextInput, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GlassesViewfinder } from '@/components/glasses/source/GlassesViewfinder';
@@ -61,6 +61,8 @@ async function barcodeIn(uri: string): Promise<string | null> {
 
 export default function ScanScreen() {
   const connected = useGlassesStore((s) => s.connection === 'connected');
+  // The glasses send a tall portrait frame; a short box shrinks it to a sliver.
+  const viewfinderHeight = Math.round(useWindowDimensions().height * 0.55);
   const [vision, setVision] = useState<VisionResult | null>(null);
   const [ebay, setEbay] = useState<EbaySearchResult | null>(null);
   const [listingsLoading, setListingsLoading] = useState(false);
@@ -73,6 +75,8 @@ export default function ScanScreen() {
   const [condition, setCondition] = useState<ConditionFilter>('all');
   const [category, setCategory] = useState<EbayCategory | null>(null);
   const [priceText, setPriceText] = useState('');
+  /** The search words being edited; null shows the query the result is priced by. */
+  const [searchText, setSearchText] = useState<string | null>(null);
   const scanIdRef = useRef(0);
 
   /** List eBay listings for `query`; a newer scan or search wins. */
@@ -101,6 +105,7 @@ export default function ScanScreen() {
     setCondition('all');
     setCategory(null);
     setPriceText('');
+    setSearchText(null);
     return id;
   }
 
@@ -210,6 +215,11 @@ export default function ScanScreen() {
 
   const cam = useGlassesCamera({ enabled: true, sheet, hostRef });
   const query = typedQuery ?? vision?.searchQuery ?? null;
+  const runSearch = () => {
+    const q = searchText?.trim();
+    if (q && q !== query) cam.search(q);
+    setSearchText(null);
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-surface-0" edges={['top', 'bottom']}>
@@ -231,7 +241,7 @@ export default function ScanScreen() {
         />
       </View>
 
-      <View className="mx-4 mt-3 rounded-2xl overflow-hidden bg-black" style={{ height: 260 }}>
+      <View className="mx-4 mt-3 rounded-2xl overflow-hidden bg-black" style={{ height: viewfinderHeight }}>
         {connected && cam.liveView ? (
           <GlassesViewfinder showBox={cam.boxOn} box={cam.box} onBoxChange={cam.setBox} onDragging={(d) => !d && cam.saveBox()} />
         ) : connected ? (
@@ -289,6 +299,23 @@ export default function ScanScreen() {
               </View>
               {cam.decision && <VerdictBadge decision={cam.decision} />}
             </View>
+
+            <View className="flex-row items-center gap-2 mt-3">
+              <TextInput
+                value={searchText ?? query}
+                onChangeText={setSearchText}
+                placeholder="eBay search words"
+                placeholderTextColor="#71717a"
+                autoCorrect={false}
+                returnKeyType="search"
+                className="flex-1 bg-surface-2 text-white rounded-xl px-3 py-2"
+                onSubmitEditing={runSearch}
+              />
+              <TouchableOpacity onPress={runSearch} disabled={listingsLoading || cam.market.loading} className="bg-surface-3 rounded-xl px-4 py-2">
+                <Text className="text-white font-semibold">Search</Text>
+              </TouchableOpacity>
+            </View>
+            <Text className="text-muted text-xs mt-1">Too few sales? Use fewer words: brand and model only.</Text>
 
             <View className="flex-row items-center gap-2 mt-3">
               <TextInput

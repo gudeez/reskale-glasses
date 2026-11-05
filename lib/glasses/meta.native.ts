@@ -267,6 +267,7 @@ export function createMetaTransport({ mock }: { mock: boolean }): GlassesTranspo
     if (photoInFlight) photos.deliver(photoInFlight, fileUri(filePath));
   });
   Meta.addListener('onInputEvent', (event) => {
+    if (__DEV__) console.log('[glasses] meta input:', event.type, (event as { pressType?: string }).pressType ?? '', parked ? '(parked)' : '');
     if (event.sessionId !== sessionId || parked) return;
     const press = inputToPress(event);
     if (press) emit({ type: 'button', press });
