@@ -82,4 +82,4 @@ The full list, with commit hashes and dates, is in HACKATHON.md.
 ### Links
 
 - Repo: https://github.com/gudeez/reskale-glasses
-- Video: TODO
+- Video: https://youtube.com/shorts/TA7AOikh99Y (clean cut, under 3 minutes; link added after the deadline, no code changed)

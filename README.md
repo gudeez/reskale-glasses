@@ -6,6 +6,8 @@ A reseller in a thrift store or at the bins has both hands full and a few second
 
 Built for the Meta Global AI Developer Hackathon (Indie Developer track, "Build for Your World"). [HACKATHON.md](HACKATHON.md) says what was built when. [SUBMISSION.md](SUBMISSION.md) has the entry text.
 
+**Demo video (under 3 minutes):** https://youtube.com/shorts/TA7AOikh99Y. This is a clean cut of the demo, recorded Nov 4. The link was added to this README at about 9:40 PM ET Nov 4, after the deadline; no code changed.
+
 ## How it works
 
 ```mermaid
