@@ -49,7 +49,12 @@ export type VoiceCommand =
   | { kind: 'buy_weight'; pounds: number | null }
   | { kind: 'ship_cost'; pounds: number | null; box: BoxSize | null };
 
-const WAKE = /^(?:(?:hey|ok|okay|um|uh)\s+)?(?:re[\s-]?s[ck]ale|risk\s?ale|rescale)d?\b[\s,.!]*/;
+/**
+ * Anywhere in the phrase, not just first: Meta's recogniser joins a seller's
+ * running talk into one long phrase ("so I'll just say rescale scan"), and
+ * the command is whatever follows the last wake word.
+ */
+const WAKE = /(?:^|\s)(?:(?:hey|ok|okay|um|uh)\s+)?(?:re[\s-]?s[ck]ale|risk\s?ale|rescale)d?\b[\s,.!]*/g;
 
 function normalise(text: string): string {
   return text
@@ -62,9 +67,10 @@ function normalise(text: string): string {
 /** The words after the wake word, or null when the phrase wasn't for Reskale. */
 export function afterWakeWord(text: string): string | null {
   const said = normalise(text);
-  const match = WAKE.exec(said);
-  if (!match) return null;
-  return said.slice(match[0].length).replace(/[.!]+$/, '').trim();
+  let end = -1;
+  for (const match of said.matchAll(WAKE)) end = match.index + match[0].length;
+  if (end < 0) return null;
+  return said.slice(end).replace(/[.!]+$/, '').trim();
 }
 
 const UNITS: Record<string, number> = {

@@ -16,8 +16,15 @@ describe('the wake word', () => {
     }
   });
 
-  it('needs the wake word first, not somewhere in the sentence', () => {
-    expect(afterWakeWord('I told reskale to scan')).toBeNull();
+  it('hears the wake word mid-phrase, and takes what follows the last one', () => {
+    // Heard on the glasses, 2026-11-04, while the seller was talking to camera.
+    expect(parseCommand("So, I'll just say rescale scan.")).toEqual({ kind: 'scan' });
+    expect(afterWakeWord('rescale is my app so rescale, next')).toBe('next');
+    expect(parseCommand('I told reskale to scan')).toBeNull();
+  });
+
+  it('does not wake on the name inside another word', () => {
+    expect(afterWakeWord('the prescale scan')).toBeNull();
   });
 
   it('does nothing with the wake word alone', () => {
